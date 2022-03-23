@@ -1,5 +1,6 @@
 package net.bourboncraft.tripwirefaucet;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TripwireFaucet extends JavaPlugin {

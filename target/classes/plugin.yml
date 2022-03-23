@@ -1,4 +1,4 @@
-name: TripwireFountain
-version: 0.2
+name: TripwireFaucet
+version: 0.3
 main: net.bourboncraft.tripwirefaucet.TripwireFaucet
 api-version: 1.18

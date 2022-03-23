@@ -1,14 +1,2 @@
-net\bourboncraft\tripwirefaucet\Metrics$DrilldownPie.class
 net\bourboncraft\tripwirefaucet\TripwireListener.class
-net\bourboncraft\tripwirefaucet\Metrics$SingleLineChart.class
-net\bourboncraft\tripwirefaucet\Metrics$AdvancedPie.class
-net\bourboncraft\tripwirefaucet\Metrics$MetricsBase.class
-net\bourboncraft\tripwirefaucet\Metrics$JsonObjectBuilder$JsonObject.class
-net\bourboncraft\tripwirefaucet\Metrics$MultiLineChart.class
-net\bourboncraft\tripwirefaucet\Metrics$CustomChart.class
-net\bourboncraft\tripwirefaucet\Metrics$SimpleBarChart.class
-net\bourboncraft\tripwirefaucet\Metrics.class
-net\bourboncraft\tripwirefaucet\Metrics$AdvancedBarChart.class
-net\bourboncraft\tripwirefaucet\Metrics$JsonObjectBuilder.class
 net\bourboncraft\tripwirefaucet\TripwireFaucet.class
-net\bourboncraft\tripwirefaucet\Metrics$SimplePie.class

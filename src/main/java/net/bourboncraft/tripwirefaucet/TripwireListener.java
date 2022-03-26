@@ -11,7 +11,11 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class TripwireListener implements Listener {
     @EventHandler
@@ -35,8 +39,16 @@ public class TripwireListener implements Listener {
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent e){
         Player p = e.getPlayer();
-        if (p.isOp() && UpdateChecker.updateAvailable){
-            p.sendMessage("There is an update available for TripwireFaucet!");
+        if (p.isOp()){
+            Plugin pu = getServer().getPluginManager().getPlugin("TripwireFaucet");
+            assert pu != null;
+
+            String curVer = pu.getDescription().getVersion();
+            new UpdateChecker((JavaPlugin) pu, TripwireFaucet.spigotId).getVersion((version) -> {
+                if (!curVer.equals(version)){
+                    p.sendMessage("There is a new TripwireFaucet version available!");
+                }
+            });
         }
     }
 }

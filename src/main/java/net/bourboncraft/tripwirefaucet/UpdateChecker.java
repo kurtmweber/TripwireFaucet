@@ -14,7 +14,6 @@ public class UpdateChecker {
 
     private final JavaPlugin plugin;
     private final int resourceId;
-    public static boolean updateAvailable;
 
     public UpdateChecker(JavaPlugin plugin, int resourceId) {
         this.plugin = plugin;

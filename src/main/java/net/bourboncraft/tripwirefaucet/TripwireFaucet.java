@@ -17,6 +17,8 @@ public class TripwireFaucet extends JavaPlugin {
                 getLogger().info("There is not a new update available.");
             } else {
                 getLogger().info("There is a new update available.");
+                getLogger().info("Available version: " + version);
+                getLogger().info("Currently installed version: " + this.getDescription().getVersion());
             }
         });
     }

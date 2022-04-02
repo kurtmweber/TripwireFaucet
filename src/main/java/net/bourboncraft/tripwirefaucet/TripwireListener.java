@@ -20,18 +20,26 @@ import static org.bukkit.Bukkit.getServer;
 public class TripwireListener implements Listener {
     @EventHandler
     public void onTripwireClicked(@NotNull PlayerInteractEvent e){
-        Block b = e.getClickedBlock();
-        if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && e.getHand().equals(EquipmentSlot.HAND) && b.getType().equals(Material.TRIPWIRE_HOOK)){
-            Block d = b.getRelative(BlockFace.DOWN);
+        Block hook = e.getClickedBlock();
+        if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && e.getHand().equals(EquipmentSlot.HAND) && hook.getType().equals(Material.TRIPWIRE_HOOK)){
+            Block cauldron = hook.getRelative(BlockFace.DOWN);
 
-            if (d.getType().equals(Material.CAULDRON)){
-                d.setType(Material.WATER_CAULDRON);
+            if (cauldron.getType().equals(Material.CAULDRON)){
+                new CauldronFiller(0, hook, cauldron);
             }
 
-            if (d.getType().equals(Material.WATER_CAULDRON)){
-                Levelled dbd = (Levelled)d.getBlockData();
-                dbd.setLevel(dbd.getMaximumLevel());
-                d.setBlockData(dbd);
+            if (cauldron.getType().equals(Material.WATER_CAULDRON)){
+                /*Levelled dbd = (Levelled)d.getBlockData();
+                int i = dbd.getLevel();
+                getLogger().info("Initial level: " + i);
+                for (; i < dbd.getMaximumLevel(); i++){
+                    getLogger().info("Setting to: " + i);
+
+                    /**/
+
+                    /*Bukkit.getScheduler().scheduleSyncDelayedTask(getServer().getPluginManager().getPlugin("TripwireFaucet"), new CauldronFillRunnable(dbd, d), 10);
+                }*/
+                new CauldronFiller(((Levelled)cauldron.getBlockData()).getLevel(), hook, cauldron);
             }
         }
     }
